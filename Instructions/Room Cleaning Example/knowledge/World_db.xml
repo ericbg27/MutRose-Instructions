@@ -1,0 +1,14 @@
+<world_db>
+    <Room>
+        <name>RoomA</name>
+        <is_clean>False</is_clean>
+    </Room>
+    <Room>
+        <name>RoomB</name>
+        <is_clean>False</is_clean>
+    </Room>
+    <Room>
+        <name>RoomC</name>
+        <is_clean>True</is_clean>
+    </Room>
+</world_db>
