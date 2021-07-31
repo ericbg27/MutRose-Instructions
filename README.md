@@ -23,6 +23,84 @@ The Goal Model in the MutRoSe framework is based on the Contextual Runtime Goal 
 ### HDDL
 The HDDL Domain specification uses a subset of the one proposed in [2] with the addition of some structures. Its modelling can be performed using any text editor of your preference.
 
+## 1. Goal Model for MRS Missions
+
+### Goal Properties
+
+#### Context Conditions
+
+Context conditions are represented by the *CreationCondition* property and has two possible types:
+
+ - Condition type context: Represents a condition to achieve some goal. The format is: 
+
+> assertion condition "[Condition]"
+
+where [Condition] represents the condition to be achieved. The currently accepted format for this condition is *[var].[attr]* where [var] is a variable name and [attr] is some boolean attribute
+
+ - Trigger type context: Represents a list of events that trigger some goal. The format is:
+
+> assertion trigger "[Events_List]"
+
+where [Events_List] is a comma-separated list of event names
+
+#### Monitors and Controls Syntax
+
+Monitors and Controls syntax is a syntax inherited from [3]. These properties are declared with these names in the Goal Model and are defined as an OCL [4] list of variable declarations. A variable declaration in OCL is as follows:
+
+> v1 : T1
+
+where v1 is the variable name and T1 is the variable type. In the Monitors property types are optional since the variable must have been previously defined in some goal Controls property
+
+#### Group and Divisible Attributes
+
+The Group and Divisible properties are related to execution constraints. These properties have these same names when declared in the Goal Model. The Group property is a concept taken from [5], where:
+
+ - True states that the goal's children can be executed by multiple robots
+ - False states that the goal's children must be executed by a single robot
+
+The Divisible property is only considered when Group is set to true. It has two possibilities:
+
+ - True states that the goal's children can be executed by different teams of robots
+ - False states that the goal's children must be executed by the same team of robots
+
+It is important to note the order of priority of execution constraints:
+
+ - Group False  has the higher priority
+ - Group False and Divisible True has the lowest priority
+ - Group True and Divisible True indicates no constraint
+
+An example of how these priorities of execution constraints affects the decomposition process is shown in the Instructions for the MutRoSe framework PDF document
+
+#### Goal Types
+
+Goals can have three types, which are:
+
+ - Query: These are goals that instantiate variables. It makes use of an OCL select statement in the *QueriedProperty* property, which syntax is shown below:
+
+	> c->select(x:xt | $\phi$)
+
+	where c is a collection variable called *Queried Variable*, x is non-collection variable called *Query Variable*, xt is the *Query Variable Type* and $\phi$ is a condition which is simply called *Condition*. There is a special value for c which represents the higher level of world knowledge that is called *world_db*.
+
+ - Achieve: These are goals that state a condition to be achieved after the end of the children's execution. It has a special condition called *AchieveCondition* which can be a simple condition over some variable attribute or a forall OCL statement, which syntax is shown below.
+
+	> c-forAll(x:xt | $\phi$)
+
+	where c is a collection variable called *Iterated Variable*, x is a non-collection variable called *Iteration Variable*, xt is an optional type called *Iteration Variable Type* and $\phi$ is the condition to be achieved for each variable in c which is simply called *Condition*.
+
+ - Perform: This is the default type, which has no special property attached to it.
+
+### Task Attributes
+Tasks have three possible attributes to be declared, which are shown below.
+
+#### Location
+The Location property is declared with the same name in the Goal Model. //TODO
+
+#### Params
+
+#### RobotNumber
+
+## 2. HDDL Domain Definition
+
 ## Instruction Video
 You can find an example-based explanation video [here](TODO).
 
@@ -34,3 +112,6 @@ One must note that:
 ## References
 [1] Mendonça, Danilo Filgueira, et al. "GODA: A goal-oriented requirements engineering framework for runtime dependability analysis." _Information and Software Technology_ 80 (2016): 245-264.
 [2] Höller, Daniel, et al. "HDDL: An extension to PDDL for expressing hierarchical planning problems." _Proceedings of the AAAI Conference on Artificial Intelligence_. Vol. 34. No. 06. 2020.
+[3] Van Lamsweerde, Axel. "From system goals to software architecture." _International School on Formal Methods for the Design of Computer, Communication and Software Systems_. Springer, Berlin, Heidelberg, 2003.
+[4] OCL, OMG. Object Constraint Language (OCL), Version 2.4. 2014.
+[5] Torreño, Alejandro, et al. "Cooperative multi-agent planning: A survey." _ACM Computing Surveys (CSUR)_ 50.6 (2017): 1-32.

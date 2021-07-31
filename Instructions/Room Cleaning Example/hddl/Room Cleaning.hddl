@@ -2,20 +2,21 @@
     (:types room - object)
     (:predicates
         (clean ?rm - room)
+        (occupied ?rm - room)
     )
     (:capabilities cleaningvacuum cleaninguv)
 
-    (:task RoomCleaningVacuum :parameters (?r - robot ?rm - room))
+    (:task RoomCleaningVacuum :parameters (?rt - robotteam ?rm - room))
     (:method room-cleaning
-        :parameters (?r - robot ?rm - room)
-        :task (RoomCleaningVacuum ?r ?rm)
+        :parameters (?rt - robotteam ?rm - room)
+        :task (RoomCleaningVacuum ?rt ?rm)
         :precondition (not (clean ?rm))
         :ordered-subtasks (and
-            (clean-room-vacuum ?r ?rm)
+            (clean-room-vacuum ?rt ?rm)
         )
     )
     (:action clean-room-vacuum
-        :parameters (?r - robot ?rm - room)
+        :parameters (?rt - robot ?rm - room)
         :required-capabilities (cleaningvacuum)
         :precondition ()
         :effect (and

@@ -53,6 +53,17 @@
                 "pred": "clean",
                 "arg_sorts": ["room"]
             }
+        },
+        {
+            "type": "attribute",
+            "name": "is_occupied",
+            "relates_to": "Room",
+            "belongs_to": "world_db",
+            "mapped_type": "predicate",
+            "map": {
+                "pred": "occupied",
+                "arg_sorts": ["room"]
+            }
         }
     ]
 }
