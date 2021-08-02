@@ -93,16 +93,50 @@ Goals can have three types, which are:
 Tasks have three possible attributes to be declared, which are shown below.
 
 #### Location
-The Location property is declared with the same name in the Goal Model. //TODO
+The Location property is declared with the same name in the Goal Model. Its value must be a single variable which:
+
+ - Can be of a collection type (Sequence) or non-collection type
+ - Must be of a location type declared in the configuration file
 
 #### Params
+The Params property is declared with the same name in the Goal Model. Its value is a list of variables, which are mapped to HDDL variables in the configuration file.
 
 #### RobotNumber
+The RobotNumber property is declared with the same name in the Goal Model. Its value can be:
+
+ - A single number (example: 4)
+ - A range indicating the minimum and maximum number of robots to execute the task (example: [2,6])
 
 ## 2. HDDL Domain Definition
+The HDDL Domain definition in the MutRoSe framework uses a subset of the HDDL language defined in [2]. New additions to the language were:
+
+ - The capabilities domain attribute, declared with the :capabilities keyword
+ - The :required-capabilities keyword for actions, which defines the list of capabilities needed to perform an action
+ - The robot and robotteam native types. The robot type defines a single robot and the robotteam type defines a variable number of robots
+
+These new additions are exemplified in the Figures below:
+
+![HDDL1](https://user-images.githubusercontent.com/28356832/127876056-6b7330d0-9e97-4220-93bf-265dc3893070.png)
+
+![HDDL2](https://user-images.githubusercontent.com/28356832/127876048-45320390-2e0e-4c6b-9954-070ce9d69c40.png)
+
+There was also the addition of function declarations using the :functions keyword as in PDDL, from which HDDL is derived. Further information on the HDDL Domain specification can be found in the Instructions for the MutRoSe framework PDF document
+
+## 3. Configuration File
+The configuration file can be in XML or JSON format. In this file we define:
+
+ - Information about the world knowledge file
+ - Information about the output file
+ - The high-level location types
+ - The type mappings, which map types from the Goal Model to type in HDDL
+ - The variable mappings, which map variables in task definitions (Location and Parameters properties) to variables in the task HDDL definition
+ - The semantic mappings, which map world knowledge record attributes to predicates defined in the HDDL Domain definition
+
+## 4. World Knowledge
+The only accepted type for the world knowledge is an XML file. In this file we have our records of pre-defined types and their attributes. This knowledge is used to initialize the world state, which is used throughout the decomposition process
 
 ## Instruction Video
-You can find an example-based explanation video [here](TODO).
+You can find an example-based explanation video [here](https://youtu.be/rXl_m7FJgOo).
 
 ## Notes
 One must note that:
