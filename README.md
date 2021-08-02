@@ -145,7 +145,11 @@ One must note that:
 
 ## References
 [1] Mendonça, Danilo Filgueira, et al. "GODA: A goal-oriented requirements engineering framework for runtime dependability analysis." _Information and Software Technology_ 80 (2016): 245-264.
+
 [2] Höller, Daniel, et al. "HDDL: An extension to PDDL for expressing hierarchical planning problems." _Proceedings of the AAAI Conference on Artificial Intelligence_. Vol. 34. No. 06. 2020.
+
 [3] Van Lamsweerde, Axel. "From system goals to software architecture." _International School on Formal Methods for the Design of Computer, Communication and Software Systems_. Springer, Berlin, Heidelberg, 2003.
+
 [4] OCL, OMG. Object Constraint Language (OCL), Version 2.4. 2014.
+
 [5] Torreño, Alejandro, et al. "Cooperative multi-agent planning: A survey." _ACM Computing Surveys (CSUR)_ 50.6 (2017): 1-32.
