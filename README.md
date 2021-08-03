@@ -83,7 +83,7 @@ Goals can have three types, which are:
 
  - Achieve: These are goals that state a condition to be achieved after the end of the children's execution. It has a special condition called *AchieveCondition* which can be a simple condition over some variable attribute or a forall OCL statement, which syntax is shown below.
 
-	> c->forAll(x:xt | $\phi$)
+	> c-forAll(x:xt | $\phi$)
 
 	where c is a collection variable called *Iterated Variable*, x is a non-collection variable called *Iteration Variable*, xt is an optional type called *Iteration Variable Type* and $\phi$ is the condition to be achieved for each variable in c which is simply called *Condition*.
 
@@ -135,6 +135,24 @@ The configuration file can be in XML or JSON format. In this file we define:
 ## 4. World Knowledge
 The only accepted type for the world knowledge is an XML file. In this file we have our records of pre-defined types and their attributes. This knowledge is used to initialize the world state, which is used throughout the decomposition process
 
+## How To Execute
+
+### Linux
+Using the linux-based binary MRSDecomposer file, one must simply run the following command in a Linux terminal in order to generate the decomposition of the mission:
+
+> ./MRSDecomposer [PATH_TO_HDDL_FILE] [PATH_TO_GOAL_MODEL_FILE] [PATH_TO_CONFIGURATION_FILE]
+
+### Windows
+Using the Windows executable MRSDecomposer file (.exe), one must simply run the following command in the command prompt:
+
+> MRSDecomposer.exe PATH_TO_HDDL_FILE] [PATH_TO_GOAL_MODEL_FILE] [PATH_TO_CONFIGURATION_FILE]
+
+### Additional options
+In both versions there are two optional command-line options that can be used:
+
+ - -v: This will generate a verbose output which shows intermeadiate results. This output is most suitable for debugging when adding a new feature
+ - -p: This will generate a pretty-printed output of the valid mission decompositions. This output is most suitable for checking the obtained results of the decomposition when simply using the binary to decompose some mission
+
 ## Instruction Video
 You can find an example-based explanation video [here](https://youtu.be/rXl_m7FJgOo).
 
@@ -142,6 +160,14 @@ You can find an example-based explanation video [here](https://youtu.be/rXl_m7FJ
 One must note that:
 
  - The "Room Preparation" example is optional for answering the form. It is highly appreciated if it is modelled since it is a more complex example which helps a lot at evaluating the framework!
+
+## In Case Of Problems While Executing
+ One may encounter the error:
+ 
+> terminate called after throwing an instance of 'boost::wrapexcept\<boost::property_tree::xml_parser::xml_parser_error\>'  
+what(): [FILEPATH]: cannot open file
+
+mostly when using the Windows executable version. If this happens it may be a problem with the file extension being in the name of the file. An example would be an XML knowledge file named *World_db.xml*, which would possibly need to be declared *World_db.xml.xml* in the configuration file due to how Windows indexes file names.
 
 ## References
 [1] Mendonça, Danilo Filgueira, et al. "GODA: A goal-oriented requirements engineering framework for runtime dependability analysis." _Information and Software Technology_ 80 (2016): 245-264.
