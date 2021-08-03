@@ -83,7 +83,7 @@ Goals can have three types, which are:
 
  - Achieve: These are goals that state a condition to be achieved after the end of the children's execution. It has a special condition called *AchieveCondition* which can be a simple condition over some variable attribute or a forall OCL statement, which syntax is shown below.
 
-	> c-forAll(x:xt | $\phi$)
+	> c->forAll(x:xt | $\phi$)
 
 	where c is a collection variable called *Iterated Variable*, x is a non-collection variable called *Iteration Variable*, xt is an optional type called *Iteration Variable Type* and $\phi$ is the condition to be achieved for each variable in c which is simply called *Condition*.
 
