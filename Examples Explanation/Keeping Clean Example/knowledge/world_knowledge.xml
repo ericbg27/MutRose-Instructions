@@ -7,9 +7,11 @@
     <Room>
         <name>RoomB</name>
         <staphylococcus>1.6</staphylococcus>
-        <occupied>False</occupied>
+        <occupied>True</occupied>
     </Room>
     <Room>
         <name>EquipmentRoom</name>
+        <staphylococcus>0</staphylococcus>
+        <occupied>False</occupied>
     </Room>
 </world_db>
