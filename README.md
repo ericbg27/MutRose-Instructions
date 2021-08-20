@@ -6,6 +6,9 @@ This repository contains two higher level folders:
 
  - Examples Explanation: This folder contains the PDF with the explanation of the examples to be modelled. It also contains the folder of each one of the examples, which contains all of the models which are already given alongside the binary for the execution of the decomposition
  - Instruction: This folder contains the PDF with detailed instructions of the MutRoSe framework. It also contains the folder for the example used to explain the concepts inside the document
+ - 
+## Instruction Video
+You can find an example-based explanation video [here](https://youtu.be/rXl_m7FJgOo).
 
 ## Goals
 After finishing the reading of the documents, you will:
@@ -152,9 +155,6 @@ In both versions there are two optional command-line options that can be used:
 
  - -v: This will generate a verbose output which shows intermeadiate results. This output is most suitable for debugging when adding a new feature
  - -p: This will generate a pretty-printed output of the valid mission decompositions. This output is most suitable for checking the obtained results of the decomposition when simply using the binary to decompose some mission
-
-## Instruction Video
-You can find an example-based explanation video [here](https://youtu.be/rXl_m7FJgOo).
 
 ## Notes
 One must note that:
