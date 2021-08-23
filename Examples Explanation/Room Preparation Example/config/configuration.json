@@ -17,11 +17,11 @@
     "type_mapping": [
         {
             "hddl_type": "room",
-            "ocl_type": ""
+            "ocl_type": "Room"
         },
         {
             "hddl_type": "rooms",
-            "ocl_type": ""
+            "ocl_type": "Sequence(Room)"
         }
     ],
 

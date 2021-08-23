@@ -22,69 +22,7 @@
     ],
 
     "var_mapping": [
-        {
-            "task_id": "AT1",
-            "map": [
-                {
-                    "gm_var": "equipment_room",
-                    "hddl_var": "?eqrm"
-                }
-            ]
-        },
-        {
-            "task_id": "AT2",
-            "map": [
-                {
-                    "gm_var": "current_room",
-                    "hddl_var": "?rm"
-                }
-            ]
-        },
-        {
-            "task_id": "AT3",
-            "map": [
-                {
-                    "gm_var": "current_room",
-                    "hddl_var": "?rm"
-                }
-            ]
-        },
-        {
-            "task_id": "AT4",
-            "map": [
-                {
-                    "gm_var": "current_room",
-                    "hddl_var": "?rm"
-                }
-            ]
-        },
-        {
-            "task_id": "AT5",
-            "map": [
-                {
-                    "gm_var": "current_room",
-                    "hddl_var": "?rm"
-                }
-            ]
-        },
-        {
-            "task_id": "AT6",
-            "map": [
-                {
-                    "gm_var": "current_room",
-                    "hddl_var": "?rm"
-                }
-            ]
-        },
-        {
-            "task_id": "AT7",
-            "map": [
-                {
-                    "gm_var": "current_room",
-                    "hddl_var": "?rm"
-                }
-            ]
-        }
+    
     ],
 
     "semantic_mapping": [
